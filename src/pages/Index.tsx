@@ -32,7 +32,9 @@ interface IndexPageProps {
 export default function IndexPage({ onToggleTheme, isDark }: IndexPageProps) {
   const [search, setSearch] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [context, setContext] = useState<ContextType>('cold-call');
+  const [context, setContext] = useState<ContextType>(() => {
+    return (localStorage.getItem('objection-context') as ContextType) || 'cold-call';
+  });
   const [drawerOpen, setDrawerOpen] = useState(false);
   const responsesRef = useRef<HTMLDivElement>(null);
   const { favorites, isFavorite, toggleFavorite, clearAll } = useFavorites();
@@ -62,8 +64,14 @@ export default function IndexPage({ onToggleTheme, isDark }: IndexPageProps) {
     setTimeout(() => responsesRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
   };
 
+  const handleContextChange = (val: string) => {
+    const newContext = val as ContextType;
+    setContext(newContext);
+    localStorage.setItem('objection-context', newContext);
+  };
+
   const handleCopy = (text: string) => {
-    navigator.clipboard.writeText(text).then(() => message.success('Copied to clipboard'));
+    navigator.clipboard.writeText(text).then(() => message.success('Copied — say it like this'));
   };
 
   return (
@@ -153,7 +161,7 @@ export default function IndexPage({ onToggleTheme, isDark }: IndexPageProps) {
           <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
             <Segmented
               value={context}
-              onChange={val => setContext(val as ContextType)}
+              onChange={handleContextChange}
               options={CONTEXTS.map(c => ({ label: c.label, value: c.key }))}
               block
               style={{ minWidth: 480 }}
@@ -167,14 +175,17 @@ export default function IndexPage({ onToggleTheme, isDark }: IndexPageProps) {
         {selected && (
           <>
             <Text strong style={{ display: 'block', marginBottom: 10, fontSize: 13, textTransform: 'uppercase', letterSpacing: 1 }}>
-              Try saying…
+              Say this:
             </Text>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              {responses.map(r => (
+              {responses.map((r, i) => (
                 <Card
                   key={r.id}
                   size="small"
-                  style={{ borderRadius: 14 }}
+                  style={{
+                    borderRadius: 14,
+                    animation: `fadeSlideIn 0.3s ease ${i * 0.06}s both`,
+                  }}
                   styles={{ body: { padding: '16px 18px' } }}
                 >
                   <div style={{ marginBottom: 10 }}>

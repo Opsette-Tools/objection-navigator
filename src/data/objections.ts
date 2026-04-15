@@ -62,11 +62,11 @@ export const objections: Objection[] = [
     responses: {
       'cold-call': [
         { id: 'dn-cc-1', text: "That's fair — most of our best clients said the same thing at first. What does your current setup look like for this?", tone: 'Curious' },
-        { id: 'dn-cc-2', text: "Totally respect that. Out of curiosity, how are you handling [specific problem] right now?", tone: 'Soft' },
+        { id: 'dn-cc-2', text: "Totally respect that. Out of curiosity, how are you handling that right now?", tone: 'Soft' },
         { id: 'dn-cc-3', text: "Got it. A lot of businesses don't realize they need it until they see what they're missing. Can I show you a quick example?", tone: 'Reframe' },
       ],
       'text': [
-        { id: 'dn-tx-1', text: "No worries! Just curious — how are you currently handling [specific area]?", tone: 'Curious' },
+        { id: 'dn-tx-1', text: "No worries! Just curious — how are you handling that right now?", tone: 'Curious' },
         { id: 'dn-tx-2', text: "Totally fair. Most people who say that are doing fine — but they're surprised when they see how much easier it could be.", tone: 'Reframe' },
       ],
       'email': [
@@ -238,7 +238,7 @@ export const objections: Objection[] = [
         { id: 'tb-tx-2', text: "Totally get it. Ironically, that's usually a sign you need this more, not less 😄 When can we grab 5 min?", tone: 'Reframe' },
       ],
       'email': [
-        { id: 'tb-em-1', text: "Completely understand — I know your time is valuable. I'll keep this brief: we help busy business owners like you [specific benefit]. If that sounds relevant, let's find 15 minutes that work for you.", tone: 'Direct' },
+        { id: 'tb-em-1', text: "Completely understand — I know your time is valuable. I'll keep this brief: we help busy business owners like you get more done in less time. If that sounds relevant, let's find 15 minutes that work for you.", tone: 'Direct' },
         { id: 'tb-em-2', text: "No worries at all. I'll follow up in a couple of weeks. In the meantime, here's a quick overview in case you find a spare moment.", tone: 'Soft' },
       ],
       'in-person': [
