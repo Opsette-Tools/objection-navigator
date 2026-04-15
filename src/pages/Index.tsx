@@ -104,7 +104,7 @@ export default function IndexPage({ onToggleTheme, isDark }: IndexPageProps) {
           <MessageOutlined style={{ fontSize: 36, color: isDark ? '#8B7CF7' : '#6B5CE7' }} />
         </div>
         <Title level={2} style={{ marginBottom: 4 }}>
-          Objection Helper
+          Objection Navigator
         </Title>
         <Text type="secondary" style={{ fontSize: 16 }}>
           Fast responses for awkward client objections.
