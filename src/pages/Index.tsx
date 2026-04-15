@@ -161,7 +161,7 @@ export default function IndexPage({ onToggleTheme, isDark }: IndexPageProps) {
           <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
             <Segmented
               value={context}
-              onChange={val => setContext(val as ContextType)}
+              onChange={handleContextChange}
               options={CONTEXTS.map(c => ({ label: c.label, value: c.key }))}
               block
               style={{ minWidth: 480 }}
@@ -175,7 +175,7 @@ export default function IndexPage({ onToggleTheme, isDark }: IndexPageProps) {
         {selected && (
           <>
             <Text strong style={{ display: 'block', marginBottom: 10, fontSize: 13, textTransform: 'uppercase', letterSpacing: 1 }}>
-              Try saying…
+              Say this:
             </Text>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {responses.map(r => (
