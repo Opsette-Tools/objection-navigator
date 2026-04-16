@@ -345,6 +345,18 @@ export default function IndexPage({ onToggleTheme, isDark }: IndexPageProps) {
         {/* Footer */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: 16, padding: '12px 0 8px', fontSize: 12 }}>
           <a
+            href="#/about"
+            style={{
+              color: isDark ? '#9B97A8' : '#6E6B78',
+              textDecoration: 'none',
+              transition: 'color 0.2s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = isDark ? '#E8E6EF' : '#2D2A33')}
+            onMouseLeave={e => (e.currentTarget.style.color = isDark ? '#9B97A8' : '#6E6B78')}
+          >
+            About
+          </a>
+          <a
             href="#/privacy"
             style={{
               color: isDark ? '#9B97A8' : '#6E6B78',
@@ -356,6 +368,23 @@ export default function IndexPage({ onToggleTheme, isDark }: IndexPageProps) {
           >
             Privacy
           </a>
+          <span style={{ color: isDark ? '#9B97A8' : '#6E6B78' }}>
+            By{' '}
+            <a
+              href="https://opsette.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: 'inherit',
+                textDecoration: 'underline',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.color = isDark ? '#E8E6EF' : '#2D2A33')}
+              onMouseLeave={e => (e.currentTarget.style.color = isDark ? '#9B97A8' : '#6E6B78')}
+            >
+              Opsette
+            </a>
+          </span>
         </div>
       </div>
 

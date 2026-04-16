@@ -4,6 +4,7 @@ import { lightTheme, darkTheme } from './theme/themeConfig';
 import { useTheme } from './hooks/useTheme';
 import IndexPage from './pages/Index';
 import Privacy from './pages/Privacy';
+import About from './pages/About';
 import NotFound from './pages/NotFound';
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<IndexPage onToggleTheme={toggle} isDark={isDark} />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </HashRouter>
