@@ -14,6 +14,7 @@ import {
 import faviconImg from '../assets/favicon.png';
 import { objections, CONTEXTS, CATEGORIES, TACTICS, TONE_INFO, ContextType, CategoryType } from '../data/objections';
 import { useFavorites } from '../hooks/useFavorites';
+import { ShareAppButton } from '@/components/opsette-share';
 
 const { Text, Paragraph } = Typography;
 
@@ -126,7 +127,7 @@ export default function IndexPage({ onToggleTheme, isDark }: IndexPageProps) {
             Objection Navigator
           </span>
         </div>
-        <div style={{ display: 'flex', gap: 6 }}>
+        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
           <Badge count={favorites.length} size="small" offset={[-4, 4]}>
             <Button
               shape="circle"
@@ -141,6 +142,7 @@ export default function IndexPage({ onToggleTheme, isDark }: IndexPageProps) {
             onClick={onToggleTheme}
             size="middle"
           />
+          <ShareAppButton size={32} />
         </div>
       </header>
 

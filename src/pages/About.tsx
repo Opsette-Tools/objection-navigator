@@ -1,8 +1,9 @@
 import { Typography, Card, Button } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import { OpsetteFooterLogo } from '@/components/opsette-share';
 
-const { Title, Paragraph, Link } = Typography;
+const { Title, Paragraph } = Typography;
 
 export default function About() {
   const navigate = useNavigate();
@@ -43,12 +44,7 @@ export default function About() {
           nothing is sent to any server.
         </Paragraph>
 
-        <Paragraph style={{ fontSize: 12, marginTop: 8 }}>
-          Find more tools at{' '}
-          <Link href="https://opsette.io" target="_blank" rel="noopener noreferrer">
-            opsette.io
-          </Link>.
-        </Paragraph>
+        <OpsetteFooterLogo />
       </Card>
     </div>
   );
